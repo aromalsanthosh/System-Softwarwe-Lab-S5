@@ -9,6 +9,7 @@ int main()
 	{
 		f[i]=0;
 	}
+
 	X:
 	printf("\nEnter the starting block & length of file :");
 	scanf("%d%d",&st,&len);
@@ -33,10 +34,8 @@ int main()
 	scanf("%d",&c);
 	if(c==1)
 	 	goto X;
-	 else
+	else
 	 	exit(0);
-
-
 
 	return 0;
 }
