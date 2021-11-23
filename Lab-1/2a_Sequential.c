@@ -1,101 +1,78 @@
-#include<stdio.h>
-#include<stdlib.h>
-
+#include <stdio.h>
+#include <stdbool.h>
 int main()
 {
-	int total_no_of_blocks, ind_block, n, c;
-	int i,j,k;
-	printf("\n Enter the total number of blocks : ");
-	scanf("%d",&total_no_of_blocks);
-	int no_of_empty_blocks = total_no_of_blocks;
-	int f[total_no_of_blocks];
-	for(i = 0;i < total_no_of_blocks; i++) //initializing unallocated blocks to 0
-		f[i+1] = 0;
-		
-	printf("\n Before Allocation : \n");
-	for( i = 0; i < total_no_of_blocks; i++)
-	{
-		if(f[i+1] == 0)
-			printf(" %d : Not Allocated \n",i+1);
-		else
-			printf(" %d : Allocated \n",i+1);		
-	}
-	printf("\n");
-	x :
-	if(no_of_empty_blocks > 0)
-	{
-		printf(" Enter the index block : ");
-		scanf("%d",&ind_block);
-		if(f[ind_block] == 0)
-		{
-			f[ind_block] = 1;
-			printf(" Enter the number of blocks to be indexed : ");
-			scanf("%d",&n);
-			if(no_of_empty_blocks < n)
-			{	
-				printf(" Not enough blocks left !\n");
-				exit(0);
-			}
-		}
-		else
-		{
-			printf(" Block is already allocated !\n");
-			goto x;
-		}
-		int indexed[n];
-		printf(" Enter the content(s) of the index block :\n");
-		for(i = 0; i < n; i++)
-		{	
-			scanf("%d",&indexed[i+1]);
-			if(indexed[i+1] == ind_block)
-			{
-				printf(" Cannot index the index block again !\n");
-				f[ind_block] = 0;
-				goto x;
-			} 
-		}
-			
-		for(i = 0; i < n; i++)
-		{	if(f[indexed[i+1]] == 1 )
-			{
-				printf(" Block is already allocated !\n");
-				f[ind_block] = 0;
-				goto x;
-			}
-		}
-		for(j = 0;j < n; j++)
-			f[indexed[j+1]] = 1;
-		
-		no_of_empty_blocks -= (n+1);	
-		printf(" Allocation has been done successfully !");
-		printf("\n File Indexed :\n");
-		for(k = 0; k < n; k++)
-		{
-			if(f[indexed[k+1]] == 1)
-				printf(" %d->%d : Allocated \n",ind_block,indexed[k+1]);
-			else 
-				printf(" %d->%d : Not Allocated \n",ind_block,indexed[k+1]);
-		}
-		
-		printf("\n After Allocation :\n");
-		for(k = 0; k < total_no_of_blocks; k++)
-		{
-			if(f[k+1] == 0)
-				printf(" %d : Not Allocated\n",k+1);
-			else
-					printf(" %d : Allocated\n",k+1);
-		}	
-		printf("\n Enter '1' to continue and '0' to exit : ");
-		scanf("%d",&c);
-		if(c == 1)
-			goto x;
-		else 
-			exit(0);
-	}
-	else
-	{
-		printf(" No more empty blocks available !\n");
-		exit(0);
-	}
-	return 0;
+    int i, j, k, tot_blocks, n_blocks, n_files, sb[50], l[50];
+    printf("\n Enter the total number of blocks : ");
+    scanf("%d", &tot_blocks);
+    int memory[tot_blocks];
+    for (i = 0; i < tot_blocks; i++)
+        memory[i] = -1;
+    printf(" Enter the number of files : ");
+    scanf("%d", &n_files);
+    bool file_alloc[n_files];
+    int alloc_info[n_files];
+    printf("\n");
+    for (i = 0; i < n_files; i++)
+    {
+        printf(" Enter the starting block number of file %d : ", i + 1);
+        scanf("%d", &sb[i]);
+        printf(" Enter the length of file %d : ", i + 1);
+        scanf("%d", &l[i]);
+        sb[i]--;
+        file_alloc[i] = 0;
+        alloc_info[i] = -1;
+    }
+    for (i = 0; i < n_files; i++)
+    {
+        j = sb[i];
+        alloc_info[i] = j;
+        file_alloc[i] = 1;
+        if (memory[j] != -1)
+        {
+            printf("\n Cannot allocate file %d.", i + 1);
+            alloc_info[i] = -1;
+            file_alloc[i] = 0;
+            continue;
+        }
+        else
+        {
+            for (j = sb[i]; j < sb[i] + l[i]; j++)
+            {
+                if (memory[j] != -1)
+                {
+                    //printf("\n j : %d", j);
+                    printf("\n Not enough space to allocate file %d.",i+1);
+                    file_alloc[i] = 0;
+                    for(k = j-1;k>=sb[i];k--)
+                    {
+                        memory[k] = -1;
+                    }
+                    alloc_info[i] = -1;
+                    break;
+                }
+                memory[j] = i + 1;
+            }
+        }
+    }
+    printf("\n\n File allocation information : ");
+    printf("\n File no. Starting block no. Length \n");
+    for (i = 0; i < n_files; i++)
+    {
+        if (file_alloc[i] == 1)
+        {
+            printf(" %d %d %d \n", i + 1,
+                   alloc_info[i] + 1, l[i]);
+        }
+        else if (file_alloc[i] == 0)
+        {
+            printf(" %d Not allocated %d \n", i + 1,l[i]);
+        }
+    }
+    printf("\n");
+    for (i = 0; i < tot_blocks; i++)
+        printf(" %d ", memory[i]);
+    printf("\n");
+
+        return 0;
 }
