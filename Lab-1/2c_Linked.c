@@ -29,7 +29,8 @@ int main()
     {
         if(f[j]==0)
         {
-            f[j]=1;printf("\n%d->%d",j,f[j]);
+            f[j]=1;
+            printf("\n%d->%d",j,f[j]);
         }
         else
         { 
