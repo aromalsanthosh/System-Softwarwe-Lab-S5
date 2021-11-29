@@ -7,7 +7,7 @@ int main()
  
 	for (int i = 0; i < 50; ++i)
 	{
-		f[i]=0;
+		f[i]=0; //initializing all location as unalllocated
 	}
 
 	X:
