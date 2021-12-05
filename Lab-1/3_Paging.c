@@ -20,3 +20,18 @@ int main()
     }
 
 }
+
+/*
+Output:
+aromal@Aromal-Nitro-5:~/SS_Lab/System-Software-Lab-S5/Lab-1$ ./a.out 
+enter how many pages
+6
+enter the page size 
+4
+page1    address 1241164512
+page2    address 1241164544
+page3    address 1241164576
+page4    address 1241164608
+page5    address 1241164640
+page6    address 1241164672
+*/
