@@ -48,3 +48,24 @@ int main()
         exit(0);
 }
 
+/*
+Output:
+aromal@Aromal-Nitro-5:~/SS_Lab/System-Software-Lab-S5/Lab-1$ ./a.out 
+Enter how many blocks that are already allocated :3
+
+Enter the blocks no.s that are already allocated :4 7 9
+Enter the starting index block & length :3 7
+
+3->1
+ 4-  >file is already allocated
+5->1
+6->1
+ 7-  >file is already allocated
+8->1
+ 9-  >file is already allocated
+10->1
+11->1
+12->1
+ If u want to enter one more file? (yes-1/no-0)
+0
+*/

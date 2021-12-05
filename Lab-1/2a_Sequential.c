@@ -39,3 +39,25 @@ int main()
 
 	return 0;
 }
+
+/*
+OUTPUT:
+Enter the starting block & length of file :4 10
+
+4->1
+5->1
+6->1
+7->1
+8->1
+9->1
+10->1
+11->1
+12->1
+13->1
+ if u want to enter more files?(y-1/n-0)1
+
+Enter the starting block & length of file :10
+4
+Block already allocated
+ if u want to enter more files?(y-1/n-0)
+*/
