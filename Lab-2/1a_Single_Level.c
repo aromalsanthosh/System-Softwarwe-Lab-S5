@@ -12,6 +12,7 @@ void main()
 {
     int i, ch;
     char tmp[10];
+    char tempFileName[10];
     dir.fileCount = 0;
     printf("Enter a directory name:");
     scanf("%s", dir.dirName);
@@ -25,7 +26,23 @@ void main()
 
             case 1:
                 printf("Enter the name of the file:");
-                scanf("%s", dir.fileName[dir.fileCount++]);
+                scanf("%s", tempFileName);
+                //check if file already exists
+                for (i = 0; i < dir.fileCount; i++)
+                {
+                    if (strcmp(dir.fileName[i], tempFileName) == 0)
+                    {
+                        printf("File already exists\n");
+                        break;
+                    }
+                }
+                //if file does not exist
+                if(i == dir.fileCount)
+                {
+                    strcpy(dir.fileName[dir.fileCount++], tempFileName);
+                    printf("File created successfully\n");
+                }
+
                 break;
 
             case 2:
