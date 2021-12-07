@@ -26,4 +26,7 @@
  - [FCFS](Lab-2/2a_FCFS.c)
  - [SCAN](Lab-2/2b_SCAN.c)
  - [C-SCAN](Lab-2/2c_C-SCAN.c)
+ ### Deadlock Avoidance
+ - [Bankers Algorithm](Lab-2/3_DeadLock.c)
+ 
  
