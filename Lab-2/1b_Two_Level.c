@@ -2,16 +2,46 @@
 #include<string.h>
 #include<stdlib.h>
 
-int i, j, dirCount;
-char dName[10], fName[10];
+int i,j, dirCount=0;                /* initialize directory count here */
+char dName[10],fName[10];           /* temporary variables */
 
 struct directory {
     char dirName[10];
-    char fileName[10][10];
+    char fileName[10][10];          /* fileName[10][i] -> i Array of 10 char */
     int fileCount;
-}dir[10];
+} dir[10];                          /* structure of Array */
 
-//function to create directory
+void createDir(struct directory dir[]);
+void createFile(struct directory dir[]);
+void deleteFile(struct directory dir[]);
+void listDir(struct directory dir[]);
+int listFiles(struct directory dir[], char dName[10]);
+void search(struct directory dir[]);
+void display(struct directory dir[]);
+
+void main() {
+    int ch;
+    while(1) {
+        printf("1.Create Directory\n2.Create File\n3.Delete File\n4.Search in Directory\n5.View Files\n6.Exit\n");        
+        printf("Enter your choice:");
+        scanf("%d",&ch);
+        printf("\n");
+        switch(ch) {
+            case 1: createDir(dir);
+                    break;
+            case 2: createFile(dir);
+                    break;
+            case 3: deleteFile(dir);
+                    break;
+            case 4: search(dir);
+                    break;
+            case 5: display(dir);
+                    break;
+            default: exit(0);
+        }
+    }
+}
+
 void createDir(struct directory dir[]) {
     char tempDirName[10];
     int isDirExist = 0; //flag to indicate if directory exist already
@@ -33,26 +63,19 @@ void createDir(struct directory dir[]) {
         dir[dirCount].fileCount=0;
         printf("Directory '%s' created\n\n", dir[dirCount-1].dirName);
     }
-    
+
 }
 
-//function to list directory
-void listDir(struct directory dir[]) {
-    for(i=0;i<dirCount;i++) {
-        printf("%s\n",dir[i].dirName);
-    }
-    if(i==dirCount) {
-        printf("\n%d directory(s) found!!\n",dirCount);
-    }
-}
-
-//function to create file
 void createFile(struct directory dir[]) {
     char tempFname[10];
+    int isFileExist = 0;
 
     listDir(dir);
+
     printf("\nChoose the directory:");
     scanf("%s",dName);
+
+
     for(i=0;i<dirCount;i++) {
         //selecting proper directory
         if(strcmp(dName,dir[i].dirName)==0) {                                   /* True -> Found */
@@ -64,11 +87,12 @@ void createFile(struct directory dir[]) {
                 if(strcmp(tempFname, dir[i].fileName[j]) == 0)
                 {
                     printf("\nFile Already Exists , Try alternative Filename !! \n");
+                    isFileExist = 1;
                     break;
                 }
             }
 
-            if(j == dir[i].fileCount){
+            if(!isFileExist){
                 strcpy(dir[i].fileName[dir[i].fileCount++], tempFname);
                 printf("File '%s' is created\n\n", dir[i].fileName[dir[i].fileCount-1]);      
                 break;
@@ -81,25 +105,6 @@ void createFile(struct directory dir[]) {
     }
 }
 
-//function to list files
-int listFiles(struct directory dir[], char dName[10]) {
-    for(i=0;i<dirCount;i++) {
-        if(strcmp(dName, dir[i].dirName)==0) {
-            printf("Showing all files.\n\n");
-            for(j=0;j<dir[i].fileCount;j++) {
-                printf("%s\n",dir[i].fileName[j]);
-            }
-            return i;
-        }
-    }
-    if(i==dirCount) {
-        printf("\n404 | No such directory found!!\n\n");
-        return -1;
-    }
-}
-
-
-//function to delete file
 void deleteFile(struct directory dir[]) {    
     if(dirCount!=0) {
         listDir(dir);
@@ -130,8 +135,31 @@ void deleteFile(struct directory dir[]) {
     }
 }
 
+void listDir(struct directory dir[]) {
+    for(i=0;i<dirCount;i++) {
+        printf("%s\n",dir[i].dirName);
+    }
+    if(i==dirCount) {
+        printf("\n%d directory(s) found!!\n",dirCount);
+    }
+}
 
-//function to search file
+int listFiles(struct directory dir[], char dName[10]) {
+    for(i=0;i<dirCount;i++) {
+        if(strcmp(dName, dir[i].dirName)==0) {
+            printf("Showing all files.\n\n");
+            for(j=0;j<dir[i].fileCount;j++) {
+                printf("%s\n",dir[i].fileName[j]);
+            }
+            return i;
+        }
+    }
+    if(i==dirCount) {
+        printf("\n404 | No such directory found!!\n\n");
+        return -1;
+    }
+}
+
 void search(struct directory dir[]) {
     if(dirCount!=0) {
         listDir(dir);
@@ -163,8 +191,6 @@ void search(struct directory dir[]) {
     }
 }
 
-
-//function to display all filke s in the directory
 void display(struct directory dir[]) {
     if(dirCount==0) {
         printf("\n404 | No directory found!!\n\n");
@@ -182,28 +208,5 @@ void display(struct directory dir[]) {
             printf("%d File(s) Found!!\n\n",dir[i].fileCount);
         }
         printf("\n\n");
-    }
-}
-
-void main() {
-    int ch;
-    while(1) {
-        printf("1.Create Directory\n2.Create File\n3.Delete File\n4.Search in Directory\n5.View Files\n6.Exit\n");        
-        printf("Enter your choice:");
-        scanf("%d",&ch);
-        printf("\n");
-        switch(ch) {
-            case 1: createDir(dir);
-                    break;
-            case 2: createFile(dir);
-                    break;
-            case 3: deleteFile(dir);
-                    break;
-            case 4: search(dir);
-                    break;
-            case 5: display(dir);
-                    break;
-            default: exit(0);
-        }
     }
 }
