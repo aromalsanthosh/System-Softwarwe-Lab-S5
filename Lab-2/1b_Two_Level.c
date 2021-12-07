@@ -4,7 +4,7 @@
 
 int i, j, dirCount;
 char dName[10], fName[10];
-char tempDirName[10];
+
 struct directory {
     char dirName[10];
     char fileName[10][10];
@@ -13,7 +13,7 @@ struct directory {
 
 //function to create directory
 void createDir(struct directory dir[]) {
-
+    char tempDirName[10];
     int isDirExist = 0; //flag to indicate if directory exist already
 
     printf("Enter directory name:");
