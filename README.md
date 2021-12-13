@@ -1,4 +1,4 @@
-## CSL331 System Software & Microprocessors Lab
+## CSL331 System Software Lab
 
 #### This repository contains programs done as a part of KTU S5 System Software Lab.
 
@@ -27,3 +27,8 @@
  - [SCAN](Lab-2/2b_SCAN.c)
  - [C-SCAN](Lab-2/2c_C-SCAN.c)
  
+## 👉🏻 [Lab-3](Lab-3)
+  ### Page Replacement Algorithms
+ - [First Come First Serve Page Replacement Algm](Lab-3/1_FCFS.c)
+ - [Least Recently Used Page Replacement Algm](Lab-3/2_LRU.c)
+ - [Least Frequently Page Replacement Algm](Lab-3/3_LFU.c)
