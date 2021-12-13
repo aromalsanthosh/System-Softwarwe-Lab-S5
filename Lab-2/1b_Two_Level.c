@@ -43,22 +43,61 @@ void main() {
 }
 
 void createDir(struct directory dir[]) {
+    char tempDirName[10];
+    int isDirExist = 0; //flag to indicate if directory exist already
+
     printf("Enter directory name:");
-    scanf("%s", dir[dirCount++].dirName);
-    dir[dirCount].fileCount=0;                                                  /* initialize count of files in the directory created */
-    printf("Directory '%s' created\n\n", dir[dirCount-1].dirName);
+    scanf("%s", tempDirName);
+
+    for(int i=0; i < 10; i++){
+        if(strcmp(tempDirName,dir[i].dirName) == 0)
+        {
+            printf("\nDirectory Already Exist, Try alternative name !! \n\n");
+            isDirExist = 1;
+            break;
+        }
+    }
+
+    if(!isDirExist){
+        strcpy(dir[dirCount++].dirName, tempDirName);
+        dir[dirCount].fileCount=0;
+        printf("Directory '%s' created\n\n", dir[dirCount-1].dirName);
+    }
+
 }
 
 void createFile(struct directory dir[]) {
+    char tempFname[10];
+    int isFileExist = 0;
+
     listDir(dir);
+
     printf("\nChoose the directory:");
     scanf("%s",dName);
+
+
     for(i=0;i<dirCount;i++) {
+        //selecting proper directory
         if(strcmp(dName,dir[i].dirName)==0) {                                   /* True -> Found */
+
             printf("Enter a file name:");
-            scanf("%s", dir[i].fileName[dir[i].fileCount++]);
-            printf("File '%s' is created\n\n", dir[i].fileName[dir[i].fileCount-1]);      
-            break;                   
+            scanf("%s", tempFname);
+
+            for(int j=0; j< dir[i].fileCount ; j++ ){
+                if(strcmp(tempFname, dir[i].fileName[j]) == 0)
+                {
+                    printf("\nFile Already Exists , Try alternative Filename !! \n");
+                    isFileExist = 1;
+                    break;
+                }
+            }
+
+            if(!isFileExist){
+                strcpy(dir[i].fileName[dir[i].fileCount++], tempFname);
+                printf("File '%s' is created\n\n", dir[i].fileName[dir[i].fileCount-1]);      
+                break;
+            }
+                 
         }
     }
     if(i==dirCount) {
