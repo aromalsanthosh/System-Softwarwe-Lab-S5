@@ -4,8 +4,13 @@
 void scan(int Ar[20], int n, int start);
 void sort(int Ar[20], int n);
 
+
+int range, lastLocation;
 int main() {
     int diskQueue[20], n, start, i;
+    printf("Enter the range :");
+    scanf("%d", &range);
+    
     printf("Enter the size of Queue: ");
     scanf("%d", &n);
     printf("Enter the Queue: ");
@@ -38,12 +43,12 @@ void scan(int Ar[20], int n, int start) {
         seekTime += diff;
         printf("Move from %d to %d with seek time %d\n", Ar[i], Ar[i+1], diff);
     }
-    current=i;
-                                             /* last element position */
+    current=i;               /* last element position */                  
     //moving to end location
-    printf("Move from %d to 199 with seek time %d\n", Ar[i], (199-Ar[i]));
-    seekTime+=199-Ar[i];
-    Ar[i]= 199;
+    lastLocation = range -1;
+    printf("Move from %d to %d with seek time %d\n", Ar[i], lastLocation,(lastLocation-Ar[i]));
+    seekTime+=lastLocation-Ar[i];
+    Ar[i]= lastLocation;
     // start seeking to the left
     for(i=pos-1;i>=0;i--) {
         diff = abs(Ar[current] - Ar[i]);
@@ -70,20 +75,24 @@ void sort(int Ar[20], int n) {
 }
 
 /* OUTPUT
-Enter the size of Queue: 7
-Enter the Queue: 82 170 43 140 24 16 190
-Enter the initial head position: 50
+
+Enter the range :200
+Enter the size of Queue: 8
+Enter the Queue: 
+98 183 41 122 14 124 65 67
+Enter the initial head position: 53
 
 Movement of Cylinders
-Move from 50 to 82 with seek time 32
-Move from 82 to 140 with seek time 58
-Move from 140 to 170 with seek time 30
-Move from 170 to 190 with seek time 20
-Move from 190 to 199 with seek time 9
-Move from 199 to 43 with seek time 156
-Move from 43 to 24 with seek time 19
-Move from 24 to 16 with seek time 8
+Move from 53 to 65 with seek time 12
+Move from 65 to 67 with seek time 2
+Move from 67 to 98 with seek time 31
+Move from 98 to 122 with seek time 24
+Move from 122 to 124 with seek time 2
+Move from 124 to 183 with seek time 59
+Move from 183 to 199 with seek time 16
+Move from 199 to 41 with seek time 158
+Move from 41 to 14 with seek time 27
 
-Total Seek Time: 332
+Total Seek Time: 331
     
 */
