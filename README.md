@@ -32,6 +32,6 @@
  
 ## 👉🏻 [Lab-3](Lab-3)
   ### Page Replacement Algorithms
- - [First Come First Serve Page Replacement Algm](Lab-3/1_FCFS.c)
+ - [First Come First Serve Page Replacement Algm](Lab-3/1_FIFO.c)
  - [Least Recently Used Page Replacement Algm](Lab-3/2_LRU.c)
  - [Least Frequently Page Replacement Algm](Lab-3/3_LFU.c)
