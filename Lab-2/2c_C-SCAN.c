@@ -103,3 +103,26 @@ void sort(int Ar[20], int n) {
     }
 
 }
+
+/*
+OUTPUT
+Enter the range :200
+Enter the size of Queue: 8
+Enter the Queue: 98 183 41 122 14 124 65 67
+Enter the initial head position: 53
+
+Movement of Cylinders
+Move from 53 to 65 with seek time 12
+Move from 65 to 67 with seek time 2
+Move from 67 to 98 with seek time 31
+Move from 98 to 122 with seek time 24
+Move from 122 to 124 with seek time 2
+Move from 124 to 183 with seek time 59
+Move from 183 to 199 with seek time 16
+Move from 199 to 0 with seek time 0
+Move from 0 to 14 with seek time 14
+Move from 14 to 41 with seek time 27
+
+Total Seek Time: 386
+*/
+
