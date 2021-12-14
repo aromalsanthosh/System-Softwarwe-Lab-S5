@@ -70,16 +70,20 @@ void sort(int Ar[20], int n) {
 }
 
 /* OUTPUT
-    Enter the size of Queue: 5
-    Enter the Queue: 100 50 10 20 75
-    Enter the initial head position: 35
-    Movement of Cylinders
-    Move from 35 to 50 with seek time 15
-    Move from 50 to 75 with seek time 25
-    Move from 75 to 100 with seek time 25
-    Move from 100 to 20 with seek time 80
-    Move from 20 to 10 with seek time 10
-    Total Seek Time: 155
-    Average Seek Time = 31.000000
+Enter the size of Queue: 7
+Enter the Queue: 82 170 43 140 24 16 190
+Enter the initial head position: 50
+
+Movement of Cylinders
+Move from 50 to 82 with seek time 32
+Move from 82 to 140 with seek time 58
+Move from 140 to 170 with seek time 30
+Move from 170 to 190 with seek time 20
+Move from 190 to 199 with seek time 9
+Move from 199 to 43 with seek time 156
+Move from 43 to 24 with seek time 19
+Move from 24 to 16 with seek time 8
+
+Total Seek Time: 332
     
 */
