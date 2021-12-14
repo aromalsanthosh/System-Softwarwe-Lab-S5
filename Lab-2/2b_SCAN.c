@@ -38,7 +38,12 @@ void scan(int Ar[20], int n, int start) {
         seekTime += diff;
         printf("Move from %d to %d with seek time %d\n", Ar[i], Ar[i+1], diff);
     }
-    current=i;                                              /* last element position */
+    current=i;
+                                             /* last element position */
+    //moving to end location
+    printf("Move from %d to 199 with seek time %d\n", Ar[i], (199-Ar[i]));
+    seekTime+=199-Ar[i];
+    Ar[i]= 199;
     // start seeking to the left
     for(i=pos-1;i>=0;i--) {
         diff = abs(Ar[current] - Ar[i]);
@@ -48,7 +53,6 @@ void scan(int Ar[20], int n, int start) {
     }
     printf("\nTotal Seek Time: %d", seekTime);
     // average of entered elements(n-1) excluding head
-    printf("\nAverage Seek Time = %f",(float) seekTime/(n-1));
     printf("\n");
 }
 
