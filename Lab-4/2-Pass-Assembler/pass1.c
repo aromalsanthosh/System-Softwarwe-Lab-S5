@@ -1,9 +1,10 @@
 /*
 !important
-Initially add the input in input.txt & optab.txt, 
-After compiling the files  
+Initially create 2 files input.txt & optab.txt in same directory,
+add the input
+After compiling pass1.c & executing a.out ,   
 length.txt, intermediate.txt & symtab.txt 
-will be created and output will be writed to it
+will be created and output will be writed to it and displayed on terminal
 */
 #include <stdio.h>
 #include <string.h>
