@@ -13,7 +13,7 @@ void paging(int page_no)
 		return;
 	}
 	printf("Storing the program in frames of frame table\n");
-	for(i = pt;i<=pt + page_no;i++)
+	for(i = pt;i<pt + page_no;i++)
 	{
 		frametable[i] = 1;
 		printf("%d -> %p \n",i,&frametable[i]);
