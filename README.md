@@ -35,3 +35,8 @@
  - [First In First Out Page Replacement Algm](Lab-3/1_FIFO.c)
  - [Least Recently Used Page Replacement Algm](Lab-3/2_LRU.c)
  - [Least Frequently Page Replacement Algm](Lab-3/3_LFU.c)
+
+ ## 👉🏻 [Lab-4](Lab-4)
+   ### Assemblers, Loaders and Macroprocessor
+ - [Pass 1 Of 2 Pass Assembler](Lab-4/Pass-1of2-Pass-Assembler/pass1.c)
+
