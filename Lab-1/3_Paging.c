@@ -1,3 +1,5 @@
+// use 'gcc 3_Paging.c' -lm to compile
+
 #include<stdio.h>
 #include<math.h>
 int frametable[50],pt = 0,frame_no;
@@ -46,7 +48,7 @@ void main()
 		else
 			break;
 	}
-
+}
 // #include<stdio.h>
 // #include<stdlib.h>
 
