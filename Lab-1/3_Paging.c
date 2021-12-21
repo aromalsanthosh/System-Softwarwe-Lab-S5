@@ -53,41 +53,36 @@ void main()
 
 
 
-
-// #include<stdio.h>
-// #include<stdlib.h>
-
-// int main()
-// { 
-//     int np,ps,i; //np = no of pages, ps = page size
-//     int *sa; //start address
-    
-//     printf("enter how many pages\n");
-//     scanf("%d",&np);
-//     printf("enter the page size \n");
-//     scanf("%d",&ps);
-
-//     sa=(int*)malloc(2*np); //allocate memory for start address and end address
-    
-//     for(i=0;i<np;i++)
-//     {
-//         sa[i]=(long)malloc(ps); //allocate memory for pages
-//         printf("page%d\t address %u\n",i+1,sa[i]); //print the start address of each page
-//     }
-
-// }
-
 /*
-Output:
-aromal@Aromal-Nitro-5:~/SS_Lab/System-Software-Lab-S5/Lab-1$ ./a.out 
-enter how many pages
-6
-enter the page size 
+OUTPUT
+
+s5d_19_15@ceclab2-System-Product-Name:~/Aromal_S/git/System-Software-Lab-S5/Lab-1$ cc 3_Paging.c -lm
+s5d_19_15@ceclab2-System-Product-Name:~/Aromal_S/git/System-Software-Lab-S5/Lab-1$ ./a.out
+Enter the size of frame table in bytes
+36
+Enter the size of a frame in bytes 
 4
-page1    address 1241164512
-page2    address 1241164544
-page3    address 1241164576
-page4    address 1241164608
-page5    address 1241164640
-page6    address 1241164672
+Total possible frames = 9 
+Enter 1 to store a program in the memory
+Enter 2 to exit
+1
+Enter size of program in bytes
+8
+Storing the program in frames of frame table
+0 -> 0x6010a0 
+1 -> 0x6010a4 
+
+Enter 1 to store a program in the memory
+Enter 2 to exit
+1
+Enter size of program in bytes
+8
+Storing the program in frames of frame table
+2 -> 0x6010a8 
+3 -> 0x6010ac 
+
+Enter 1 to store a program in the memory
+Enter 2 to exit
+2
+
 */
