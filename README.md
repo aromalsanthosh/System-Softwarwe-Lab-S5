@@ -38,5 +38,7 @@
 
  ## 👉🏻 [Lab-4](Lab-4)
    ### Assemblers, Loaders and Macroprocessor
- - [Pass 1 Of 2 Pass Assembler](Lab-4/Pass-1of2-Pass-Assembler/pass1.c)
+ - [Pass 1 Of 2 Pass Assembler](Lab-4/2-Pass-Assembler/pass1.c)
+ - [Pass 2 Of 2 Pass Assembler](Lab-4/2-Pass-Assembler/pass2.c)
+
 
