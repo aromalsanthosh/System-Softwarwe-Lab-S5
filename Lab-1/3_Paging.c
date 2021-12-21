@@ -1,4 +1,4 @@
-// use 'gcc 3_Paging.c' -lm to compile
+// use 'gcc 3_Paging.c -lm' to compile
 
 #include<stdio.h>
 #include<math.h>
@@ -49,6 +49,11 @@ void main()
 			break;
 	}
 }
+
+
+
+
+
 // #include<stdio.h>
 // #include<stdlib.h>
 
