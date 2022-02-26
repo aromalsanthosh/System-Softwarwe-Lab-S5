@@ -41,6 +41,8 @@
  - [Pass 1 Of II Pass Assembler](Lab-4/2-Pass-Assembler/pass1.c)
  - [Pass 2 Of II Pass Assembler](Lab-4/2-Pass-Assembler/pass2.c)
  - [Single Pass Assembler](Lab-4/Single-Pass-Assembler/singlepass.c)
+ - [Absolute Loader](Lab-4/Absolute-Loader/absolute.c)
+
 
 
 
