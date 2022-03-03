@@ -1,43 +1,37 @@
+#include<stdlib.h>
 #include<stdio.h>
-#include <stdlib.h>
 int main()
 {
-	int f[50],st,j,len,c,k;
-    //start =st , length = len
- 
-	for (int i = 0; i < 50; ++i)
-	{
-		f[i]=0; //initializing all location as unalllocated
-	}
-
-	X:
-	printf("\nEnter the starting block & length of file :");
-	scanf("%d%d",&st,&len);
-
-	for (int j = st; j < (st+len); ++j)	
-	{
-		if (f[j] == 0)
-		{
-			f[j] = 1;
-			printf("\n%d->%d",j,f[j]);
-		}
-		else
-		{
-			printf("Block already allocated");
-			break;
-		}
-	}
-
-	if(j==(st+len))
-		printf("\n the file is allocated to disk");
-	printf("\n if u want to enter more files?(y-1/n-0)");
-	scanf("%d",&c);
-	if(c==1)
-	 	goto X;
-	else
-	 	exit(0);
-
-	return 0;
+        int start,length,*f,i,j;
+        char ch;
+         for(i=0;i<50;i++)
+                f[i] = 0;
+        
+        do
+        {
+                printf("Enter the starting\n");
+                scanf("%d",&start);
+                printf("Enter the length\n");
+                scanf("%d",&length);
+                for(i= start;i<(start+length);i++)
+                {
+                        if(f[i] == 0)
+                        {
+                                f[i] = 1;
+                                printf("%d -> %d\n",i,f[i]);
+                        }
+                        else
+                        {
+                                printf("File has already allocated\n");
+                               
+                        }
+                }
+                
+                        printf("\nFile has been allocated (do you want to allocate once more (y/n) \n");
+                        scanf(" %c",&ch);
+   
+        }while(ch == 'Y' || ch == 'y');
+        
 }
 
 /*
