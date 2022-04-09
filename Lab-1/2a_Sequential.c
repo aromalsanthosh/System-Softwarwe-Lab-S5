@@ -9,9 +9,9 @@ int main()
         
         do
         {
-                printf("Enter the starting\n");
+                printf("Enter the starting block :\n");
                 scanf("%d",&start);
-                printf("Enter the length\n");
+                printf("Enter the length : \n");
                 scanf("%d",&length);
                 for(i= start;i<(start+length);i++)
                 {
@@ -36,22 +36,21 @@ int main()
 
 /*
 OUTPUT:
-Enter the starting block & length of file :4 10
-
-4->1
-5->1
-6->1
-7->1
-8->1
-9->1
-10->1
-11->1
-12->1
-13->1
- if u want to enter more files?(y-1/n-0)1
-
-Enter the starting block & length of file :10
+aromal@Aromal-Nitro-5:~/labdemo$ ./a.out
+Enter the starting block :
 4
-Block already allocated
- if u want to enter more files?(y-1/n-0)
+Enter the length : 
+10
+4 -> 1
+5 -> 1
+6 -> 1
+7 -> 1
+8 -> 1
+9 -> 1
+10 -> 1
+11 -> 1
+12 -> 1
+13 -> 1
+
+File has been allocated (do you want to allocate once more (y/n) 
 */
